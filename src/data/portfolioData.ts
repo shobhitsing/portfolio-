@@ -11,8 +11,9 @@ export interface ProjectItem {
   id: string
   title: string
   category: string
-  description: string
-  keyFeatures: string[]
+  problem: string
+  solution: string
+  technicalDecision: string
   technologies: string[]
   liveUrl: string
   githubUrl: string
@@ -25,10 +26,21 @@ export interface SkillCategory {
   skills: { name: string; level: string; iconName?: string }[]
 }
 
+export interface SystemDesignTopic {
+  id: string
+  title: string
+  category: string
+  icon: string
+  summary: string
+  principles: string[]
+  tools: string[]
+}
+
 export interface PersonalInfo {
   name: string
   title: string
   specialization: string
+  headline: string
   statusBadge: string
   experience: string
   phone: string
@@ -47,8 +59,9 @@ export const portfolioConfig = {
     name: "Shobhit Singh",
     title: "Senior Frontend Developer",
     specialization: "React.js • Next.js • TypeScript • Tailwind CSS",
+    headline: "I Build High-Performance Web Experiences.",
     statusBadge: "Available for Freelance & Contract Roles (Worldwide)",
-    experience: "6 Years Experience",
+    experience: "5+ Years Experience",
     phone: "+91 8368226635",
     country: "India",
     email: "sshobhit479@gmail.com",
@@ -56,25 +69,25 @@ export const portfolioConfig = {
     github: "https://github.com/shobhitsing/",
     location: "India • Remote Worldwide",
     shortBio:
-      "With 6 years of professional experience, I specialize in translating Figma designs into high-performance, pixel-perfect React and Next.js applications with clean TypeScript and modern Tailwind CSS.",
+      "Senior Frontend Developer specializing in React.js, Next.js, and TypeScript. I translate complex Figma designs into responsive, accessible, and sub-second web applications for international teams and startups.",
     fullBio:
-      "With 6 years of dedicated frontend engineering experience based in India, I build reliable, responsive, and maintainable user interfaces for tech founders, product companies, and international agencies. I prioritize clean component architecture, fast delivery, and seamless cross-timezone async collaboration.",
+      "With approximately five years of dedicated frontend engineering experience based in India, I build reliable, responsive, and maintainable user interfaces for tech founders, product companies, and international agencies. I prioritize clean component architecture, fast delivery, and seamless cross-timezone async collaboration.",
     philosophyPoints: [
       {
-        title: "Clean, Typed Codebases",
+        title: "Clean, Maintainable Code",
         description: "Zero guesswork with robust TypeScript types, modular components, and predictable state management.",
       },
       {
-        title: "Pixel-Perfect Fidelity",
+        title: "Pixel-Perfect Responsive UI",
         description: "Translating every nuance of your Figma designs into fully responsive, accessible web interfaces.",
       },
       {
-        title: "Performance & SEO Focused",
-        description: "Optimizing bundle sizes, Core Web Vitals, semantic markup, and lighting-fast load speeds.",
+        title: "Performance & Core Web Vitals",
+        description: "Optimizing bundle sizes, sub-second LCP, zero layout shifts, and semantic markup for maximum SEO.",
       },
       {
-        title: "Async & Transparent Collaboration",
-        description: "Structured Git commits, regular Loom/screen demos, and clear communication aligned with global time zones.",
+        title: "Async Global Collaboration",
+        description: "Structured Git commits, regular Loom screen walkthroughs, and clear communication aligned with your timezone.",
       },
     ],
   } as PersonalInfo,
@@ -82,40 +95,40 @@ export const portfolioConfig = {
   // Services International Clients Hire For
   services: [
     {
-      id: "figma-to-code",
+      id: "figma-to-react",
       title: "Figma to React / Next.js",
-      shortDesc: "Pixel-perfect conversion of complex UI/UX designs into responsive, clean code.",
+      shortDesc: "Pixel-perfect conversion of complex UI/UX designs into responsive, production-ready code.",
       description:
-        "Transform your Figma or Adobe XD designs into modular, pixel-perfect React and Next.js components styled with Tailwind CSS, guaranteeing cross-device fidelity.",
-      icon: "Figma",
+        "Transforming your Figma files into modular, accessible React and Next.js components styled with Tailwind CSS, ensuring 100% cross-device fidelity.",
+      icon: "Layers",
       tags: ["Pixel-Perfect", "Tailwind CSS", "Semantic HTML", "Mobile-First"],
     },
     {
-      id: "nextjs-development",
-      title: "Next.js & React Web Apps",
-      shortDesc: "Scalable frontend architectures with SSR, routing, and modern state management.",
+      id: "nextjs-web-apps",
+      title: "Next.js & React Web Applications",
+      shortDesc: "Scalable frontend architectures with SSR, App Router, and clean state management.",
       description:
-        "Building fast, SEO-friendly web apps utilizing Next.js App Router, React 19, TypeScript, and clean API integrations tailored to your product specs.",
+        "Building fast, SEO-friendly web apps utilizing Next.js App Router, React 19, TypeScript, and clean API integrations tailored to product specifications.",
       icon: "Zap",
       tags: ["Next.js", "TypeScript", "App Router", "REST APIs"],
     },
     {
       id: "responsive-ui",
-      title: "Responsive & Accessible UI",
-      shortDesc: "Fluid, mobile-first layouts tested across modern devices and browsers.",
+      title: "Responsive UI Development",
+      shortDesc: "Fluid, mobile-first layouts tested across modern devices, tablets, and browsers.",
       description:
-        "Crafting intuitive user interfaces that load fast, adhere to WCAG accessibility principles, and deliver a silky-smooth experience on smartphones, tablets, and desktops.",
+        "Crafting intuitive user interfaces that load fast, adhere to WCAG accessibility principles, and deliver seamless interactions across all screen sizes.",
       icon: "Smartphone",
-      tags: ["Responsive", "Cross-Browser", "Accessibility", "Animations"],
+      tags: ["Responsive", "Cross-Browser", "Accessibility", "Design Tokens"],
     },
     {
-      id: "outsourcing-contracts",
-      title: "Frontend Outsourcing & Contracts",
-      shortDesc: "Dedicated frontend engineering bandwidth for global product teams.",
+      id: "frontend-optimization",
+      title: "Frontend Optimization & Performance",
+      shortDesc: "Sub-second page loads, bundle reduction, and Core Web Vitals optimization.",
       description:
-        "Seamless team augmentation to build new features, crush UI backlogs, refactor legacy interfaces, or deliver end-to-end client projects on schedule.",
-      icon: "Briefcase",
-      tags: ["Contract", "Team Augmentation", "Git Workflow", "Async Communication"],
+        "Auditing and enhancing existing frontends to eliminate layout shifts, reduce JavaScript bundle overhead, and boost Google PageSpeed scores.",
+      icon: "Rocket",
+      tags: ["Core Web Vitals", "Code Splitting", "SEO Optimization", "LCP < 1.2s"],
     },
   ] as ServiceItem[],
 
@@ -123,118 +136,147 @@ export const portfolioConfig = {
   projects: [
     {
       id: "project-consultation-app",
-      title: "Consultation Pro — Appointment & Advisory Platform",
+      title: "Consultation Pro",
       category: "Client Booking & SaaS Platform",
       badge: "Live on Vercel",
-      description:
-        "A modern consultation and appointment booking web application featuring scheduling flows, responsive client forms, and smooth service selection.",
-      keyFeatures: [
-        "Dynamic appointment scheduling and service package selection",
-        "Clean, responsive mobile-first UI built with modern component architectures",
-        "Production deployment on Vercel with high performance and accessibility",
-      ],
+      problem: "High client drop-off caused by slow, unresponsive appointment booking flows and rigid calendar interfaces.",
+      solution: "Engineered a streamlined multi-step booking experience with dynamic date/time slot selection and responsive client intake forms.",
+      technicalDecision: "Utilized Next.js App Router with modular state management to ensure instant page transitions and zero runtime layout shifts.",
       technologies: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Vercel"],
       liveUrl: "https://consultation-git-main-shobhitsings-projects.vercel.app/",
       githubUrl: "https://github.com/shobhitsing/",
     },
     {
       id: "project-crack-the-campus",
-      title: "Crack The Campus — Placement & Learning Platform",
+      title: "Crack The Campus",
       category: "EdTech & Career Prep Portal",
       badge: "Live on Vercel",
-      description:
-        "An EdTech campus preparation web portal built to help engineering and college students prepare for technical assessments, aptitude rounds, and interviews.",
-      keyFeatures: [
-        "Structured learning roadmaps and technical interview practice modules",
-        "Interactive assessment interfaces with responsive navigation",
-        "Clean, performant UI with fast page load times and mobile compatibility",
-      ],
+      problem: "Scattered placement training resources and non-responsive test modules discouraging student practice sessions.",
+      solution: "Developed an intuitive placement prep portal featuring categorized learning roadmaps, mock technical tests, and assessment tracking.",
+      technicalDecision: "Implemented typed TypeScript component trees with client-side caching to support fast test navigation without lag.",
       technologies: ["React.js", "TypeScript", "Tailwind CSS", "REST APIs", "Vercel"],
       liveUrl: "https://crack-the-campus-website-git-main-shobhitsings-projects.vercel.app/",
       githubUrl: "https://github.com/shobhitsing/",
     },
     {
       id: "project-suryapura-development",
-      title: "Suryapura Rural Development — Community Welfare Portal",
+      title: "Suryapura Rural Development",
       category: "Public Welfare & Community Web App",
       badge: "Live on Vercel",
-      description:
-        "A digital rural development and citizen initiative portal showcasing education, agriculture, road infrastructure, and panchayat schemes.",
-      keyFeatures: [
-        "Public development tracker for village infrastructure and farmer initiatives",
-        "Multilingual typography (Hindi & English) with accessible design principles",
-        "Lightweight, lightning-fast Vite + React SPA architecture",
-      ],
+      problem: "Lack of a transparent digital channel for rural citizens to follow public infrastructure and farming welfare schemes.",
+      solution: "Created an accessible citizen portal tracking village education, agriculture initiatives, and infrastructure progress.",
+      technicalDecision: "Selected lightweight Vite + React architecture for optimal performance on low-bandwidth mobile networks in rural regions.",
       technologies: ["React.js", "Vite", "Tailwind CSS", "Responsive UI", "Vercel"],
       liveUrl: "https://suryapura-rural-development-c5x8.vercel.app/",
       githubUrl: "https://github.com/shobhitsing/",
     },
   ] as ProjectItem[],
 
-  // Technical Skills Matrix
+  // The 4 Specific Technical Skills Groups Requested
   skills: [
     {
-      title: "Core & Frameworks",
+      title: "Frontend",
       icon: "Code2",
       skills: [
         { name: "React.js", level: "Expert" },
-        { name: "Next.js (App Router)", level: "Advanced" },
-        { name: "TypeScript", level: "Advanced" },
+        { name: "Next.js", level: "Advanced" },
         { name: "JavaScript (ES6+)", level: "Expert" },
-        { name: "HTML5 & Semantic Markup", level: "Expert" },
+        { name: "TypeScript", level: "Advanced" },
       ],
     },
     {
-      title: "State & Data Architecture",
-      icon: "Database",
-      skills: [
-        { name: "Redux & Redux Toolkit (RTK)", level: "Expert" },
-        { name: "Zustand & Context API", level: "Advanced" },
-        { name: "REST APIs & JSON Integration", level: "Expert" },
-        { name: "Axios & Fetch API", level: "Expert" },
-        { name: "RTK Query & Client Caching", level: "Advanced" },
-      ],
-    },
-    {
-      title: "UI, Styling & Accessibility",
+      title: "Styling",
       icon: "Layout",
       skills: [
         { name: "Tailwind CSS", level: "Expert" },
-        { name: "Web Accessibility (WCAG / a11y)", level: "Advanced" },
-        { name: "Responsive & Mobile-First Design", level: "Expert" },
-        { name: "Figma to Code (Pixel-Perfect)", level: "Expert" },
-        { name: "CSS Modules & Micro-animations", level: "Advanced" },
+        { name: "CSS3 / Modern CSS", level: "Advanced" },
+        { name: "Responsive Design", level: "Expert" },
+        { name: "Figma-to-Code", level: "Expert" },
       ],
     },
     {
-      title: "Testing & Quality Assurance",
-      icon: "ShieldCheck",
+      title: "State and Forms",
+      icon: "Database",
       skills: [
-        { name: "Jest Unit Test Cases", level: "Advanced" },
-        { name: "Playwright E2E Test Cases", level: "Advanced" },
-        { name: "React Testing Library", level: "Advanced" },
-        { name: "Cross-Browser Compatibility", level: "Expert" },
+        { name: "Redux Toolkit (RTK)", level: "Expert" },
+        { name: "Zustand", level: "Advanced" },
+        { name: "React Context API", level: "Advanced" },
+        { name: "React Hook Form", level: "Advanced" },
       ],
     },
     {
-      title: "AI & Modern Workflow",
-      icon: "Sparkles",
+      title: "APIs and Performance",
+      icon: "Zap",
       skills: [
-        { name: "AI-Assisted Development (Copilot/Cursor)", level: "Advanced" },
-        { name: "LLM & AI API Integrations", level: "Advanced" },
-        { name: "AI Prompt Engineering for Code", level: "Expert" },
-        { name: "Rapid Prototyping with AI", level: "Advanced" },
-      ],
-    },
-    {
-      title: "DevOps, Tools & Delivery",
-      icon: "Wrench",
-      skills: [
-        { name: "Git & GitHub Workflows", level: "Expert" },
-        { name: "Vite & Modern Bundlers", level: "Advanced" },
-        { name: "Vercel & CI/CD Deployment", level: "Advanced" },
-        { name: "Chrome DevTools & Web Vitals", level: "Advanced" },
+        { name: "REST APIs", level: "Expert" },
+        { name: "Axios / Fetch", level: "Expert" },
+        { name: "Core Web Vitals", level: "Advanced" },
+        { name: "SEO Optimization", level: "Advanced" },
       ],
     },
   ] as SkillCategory[],
+
+  // Frontend System Design & Architecture
+  systemDesign: [
+    {
+      id: "component-architecture",
+      title: "Modular Component Architecture",
+      category: "Component Hierarchy",
+      icon: "Layers",
+      summary:
+        "Building decoupled, highly reusable UI systems with strict separation between headless state logic and presentation views.",
+      principles: [
+        "Headless Custom Hooks & Inversion of Control",
+        "Compound Component Patterns for Flexible Layouts",
+        "Type-Safe Prop Contracts with Zero Implicit Any",
+        "Design Tokens Driven UI (Atomic Architecture)",
+      ],
+      tools: ["React 19", "TypeScript Generics", "Tailwind CSS", "Atomic Design"],
+    },
+    {
+      id: "state-caching",
+      title: "Multi-Tier State & Data Caching",
+      category: "State Management",
+      icon: "Database",
+      summary:
+        "Architecting clean state boundaries separating volatile client UI states from normalized server-cache stores.",
+      principles: [
+        "Server-Cache Synchronization & Stale-While-Revalidate",
+        "Optimistic UI Updates for Instant Perceived Performance",
+        "Normalized State Trees Preventing Stale Redundant Data",
+        "Event-Driven Action Flows with Redux Toolkit",
+      ],
+      tools: ["Redux Toolkit (RTK)", "RTK Query", "Zustand", "Context API"],
+    },
+    {
+      id: "rendering-performance",
+      title: "Rendering Strategies & Web Vitals",
+      category: "Performance Engineering",
+      icon: "Zap",
+      summary:
+        "Optimizing delivery pipelines through selective SSR, client streaming, tree shaking, and sub-second Largest Contentful Paint.",
+      principles: [
+        "Hybrid SSR, SSG, and React Server Components (RSC)",
+        "Dynamic Code Splitting & Route-Based Chunking",
+        "Virtualized Large Data Lists (Zero DOM Bloat)",
+        "Core Web Vitals Optimization (LCP < 1.2s, CLS = 0)",
+      ],
+      tools: ["Next.js App Router", "Dynamic Imports", "Web Vitals API", "Bundle Splitting"],
+    },
+    {
+      id: "network-resilience",
+      title: "Network Resilience & Error Boundaries",
+      category: "Networking & Reliability",
+      icon: "ShieldCheck",
+      summary:
+        "Hardened frontend networking layer with automatic retry policies, schema validation, and fail-safe error boundaries.",
+      principles: [
+        "Axios Interceptors with Exponential Backoff Retry",
+        "Runtime Payload Validation with Strict Schemas",
+        "JWT Authentication Flow & Silent Refresh Rotation",
+        "Granular Error Boundaries for Graceful Fallbacks",
+      ],
+      tools: ["Axios Interceptors", "Zod", "React Error Boundary", "Security Headers"],
+    },
+  ] as SystemDesignTopic[],
 }
