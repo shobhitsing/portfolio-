@@ -77,9 +77,9 @@ export const ProjectsSection: React.FC = () => {
 
                 {/* Center Title in Mockup */}
                 <div className="my-auto z-10 text-center py-2">
-                  <div className="text-xl font-bold tracking-tight text-[#F8FAFC] group-hover:scale-105 transition-transform duration-200">
+                  <h3 className="text-xl font-bold tracking-tight text-[#F8FAFC] group-hover:scale-105 transition-transform duration-200">
                     {project.title}
-                  </div>
+                  </h3>
                   <span className="text-xs text-[#22D3EE] font-mono mt-0.5 block">
                     {project.category}
                   </span>

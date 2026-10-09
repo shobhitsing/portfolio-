@@ -82,9 +82,9 @@ export const Footer: React.FC = () => {
 
           {/* Column 2: Navigation Sitemap (Col 5-7) */}
           <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#8B5CF6]">
+            <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#8B5CF6]">
               Navigation
-            </h4>
+            </h3>
             <ul className="space-y-2 text-sm text-[#94A3B8]">
               <li>
                 <a href="#services" className="hover:text-[#F8FAFC] transition-colors">
@@ -124,9 +124,9 @@ export const Footer: React.FC = () => {
 
           {/* Column 3: Specializations (Col 8-9) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#8B5CF6]">
+            <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#8B5CF6]">
               Specializations
-            </h4>
+            </h3>
             <ul className="space-y-2 text-sm text-[#94A3B8]">
               <li className="flex items-center gap-2">
                 <Code2 className="w-3.5 h-3.5 text-[#22D3EE]" />
@@ -157,9 +157,9 @@ export const Footer: React.FC = () => {
 
           {/* Column 4: Direct Contact (Col 10-12) */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#8B5CF6]">
+            <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#8B5CF6]">
               Direct Contact
-            </h4>
+            </h3>
             <div className="space-y-2.5 text-sm text-slate-300">
               <a
                 href={`mailto:${personal.email}`}

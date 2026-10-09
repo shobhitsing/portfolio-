@@ -43,14 +43,14 @@ export const AboutSection: React.FC = () => {
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#151927] border border-[rgba(148,163,184,0.16)]">
                 <ShieldCheck className="w-5 h-5 text-[#8B5CF6] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-semibold text-[#F8FAFC]">Maintainable Code</h4>
+                  <h3 className="text-xs font-semibold text-[#F8FAFC]">Maintainable Code</h3>
                   <p className="text-[12px] text-[#94A3B8]">Strict TypeScript, modular components.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#151927] border border-[rgba(148,163,184,0.16)]">
                 <Clock className="w-5 h-5 text-[#22D3EE] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-semibold text-[#F8FAFC]">Async Collaboration</h4>
+                  <h3 className="text-xs font-semibold text-[#F8FAFC]">Async Collaboration</h3>
                   <p className="text-[12px] text-[#94A3B8]">Structured Git & timezone alignment.</p>
                 </div>
               </div>

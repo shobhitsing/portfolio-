@@ -154,8 +154,11 @@ export const Hero: React.FC = () => {
                 <img
                   src={shobhitImg}
                   alt={`${personal.name} - ${personal.title}`}
+                  width={380}
+                  height={475}
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                   loading="eager"
+                  fetchPriority="high"
                 />
 
                 {/* Floating Badge: Top Right */}
